@@ -1,5 +1,5 @@
 {
-  "name": "Twitch-Bot-Demo",
+  "name": "TwitchBotDemo",
   "version": "1.0.0",
   "description": "Example based off of Twitch IRC Documents",
   "main": "chatbot_getting_started.js",

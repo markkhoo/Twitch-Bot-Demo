@@ -1,13 +1,14 @@
 const tmi = require('tmi.js');
+require('dotenv').config();
 
 // Define configuration options
 const opts = {
   identity: {
-    username: "",
-    password: ""
+    username: process.env.DB_USER,
+    password: process.env.DB_PASS
   },
   channels: [
-    ""
+    "inexperiencedstreamer",
   ]
 };
 
@@ -36,15 +37,15 @@ function onMessageHandler (target, context, msg, self) {
   } else {
     console.log(`* Unknown command ${commandName}`);
   }
-}
+};
 
 // Function called when the "dice" command is issued
 function rollDice () {
   const sides = 6;
   return Math.floor(Math.random() * sides) + 1;
-}
+};
 
 // Called every time the bot connects to Twitch chat
 function onConnectedHandler (addr, port) {
   console.log(`* Connected to ${addr}:${port}`);
-}
+};
