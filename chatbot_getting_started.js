@@ -8,7 +8,7 @@ const opts = {
     password: process.env.DB_PASS
   },
   channels: [
-    "inexperiencedstreamer",
+    process.env.DB_CHANNEL_ONE,
   ]
 };
 

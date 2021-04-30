@@ -4,7 +4,9 @@
   "description": "Example based off of Twitch IRC Documents",
   "main": "chatbot_getting_started.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node chatbot_getting_started.js",
+    "watch": "nodemon chatbot_getting_started.js"
   },
   "repository": {
     "type": "git",
