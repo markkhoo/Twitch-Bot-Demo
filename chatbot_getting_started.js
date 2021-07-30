@@ -1,19 +1,22 @@
 require('dotenv').config();
 const tmi = require('tmi.js'); // See https://tmijs.com/ for tmi docs
 
-// Define configuration options
-const opts = {
+// Create a client and Define COnfiguration options
+const client = new tmi.client({
   identity: {
     username: process.env.DB_USER,
     password: process.env.DB_PASS
   },
   channels: [
     process.env.DB_CHANNEL_ONE
-  ]
-};
-
-// Create a client with our options
-const client = new tmi.client(opts);
+  ],
+  connection: {
+		// The secure config is required if you're using tmi on the server.
+		// Node doesn't handle automatically upgrading .dev domains to use TLS.
+		secure: true,
+		server: 'irc.fdgt.dev',
+	}
+});
 
 // Register our event handlers (defined below)
 client.on('message', onMessageHandler);
@@ -30,8 +33,8 @@ function onMessageHandler(target, context, msg, self) {
   const commandName = msg.trim();
 
   // console.log(target);
-  console.log(context);
-  console.log(msg);
+  // console.log(context);
+  // console.log(msg);
 
   // If the command is known, let's execute it
   if (commandName === '!dice') {
