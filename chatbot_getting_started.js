@@ -1,5 +1,5 @@
-const tmi = require('tmi.js'); // See https://tmijs.com/ for tmi docs
 require('dotenv').config();
+const tmi = require('tmi.js'); // See https://tmijs.com/ for tmi docs
 
 // Define configuration options
 const opts = {
@@ -8,7 +8,7 @@ const opts = {
     password: process.env.DB_PASS
   },
   channels: [
-    process.env.DB_CHANNEL_ONE,
+    process.env.DB_CHANNEL_ONE
   ]
 };
 
@@ -29,7 +29,9 @@ function onMessageHandler(target, context, msg, self) {
   // Remove whitespace from chat message
   const commandName = msg.trim();
 
-  // console.log(msg);
+  // console.log(target);
+  console.log(context);
+  console.log(msg);
 
   // If the command is known, let's execute it
   if (commandName === '!dice') {
