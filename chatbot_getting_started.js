@@ -10,12 +10,12 @@ const client = new tmi.client({
   channels: [
     process.env.DB_CHANNEL_ONE
   ],
-  connection: {
-		// The secure config is required if you're using tmi on the server.
-		// Node doesn't handle automatically upgrading .dev domains to use TLS.
-		secure: true,
-		server: 'irc.fdgt.dev',
-	}
+  // connection: {
+	// 	// The secure config is required if you're using tmi on the server.
+	// 	// Node doesn't handle automatically upgrading .dev domains to use TLS.
+	// 	secure: true,
+	// 	server: 'irc.fdgt.dev', //https://fdgt.dev/docs/getting-started
+	// }
 });
 
 // Register our event handlers (defined below)
@@ -32,9 +32,9 @@ function onMessageHandler(target, context, msg, self) {
   // Remove whitespace from chat message
   const commandName = msg.trim();
 
-  // console.log(target);
-  // console.log(context);
-  // console.log(msg);
+  console.log(target);
+  console.log(context);
+  console.log(msg);
 
   // If the command is known, let's execute it
   if (commandName === '!dice') {
