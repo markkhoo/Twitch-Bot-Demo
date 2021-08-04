@@ -21,9 +21,18 @@ const client = new tmi.client({
 // Register our event handlers (defined below)
 client.on('message', onMessageHandler);
 client.on('connected', onConnectedHandler);
+client.on("raided", onRaided);
 
 // Connect to Twitch:
 client.connect();
+
+//
+function onRaided(channel, username, viewers, tags) {
+  console.log(channel);
+  console.log(username);
+  console.log(viewers);
+  console.log(tags);
+};
 
 // Called every time a message comes in
 function onMessageHandler(target, context, msg, self) {
