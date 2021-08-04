@@ -31,7 +31,7 @@ function onRaided(channel, username, viewers, tags) {
   console.log(channel);
   console.log(username);
   console.log(viewers);
-  console.log(tags);
+  // console.log(tags);
 };
 
 // Called every time a message comes in
@@ -41,9 +41,9 @@ function onMessageHandler(target, context, msg, self) {
   // Remove whitespace from chat message
   const commandName = msg.trim();
 
-  console.log(target);
-  console.log(context);
-  console.log(msg);
+  // console.log(target);
+  // console.log(context);
+  // console.log(msg);
 
   // If the command is known, let's execute it
   if (commandName === '!dice') {
